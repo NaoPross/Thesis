@@ -1,0 +1,100 @@
+% !TeX program = xelatex
+% !TeX encoding = utf8
+% vim:ts=2 sw=2 et tw=78:
+
+% Load a custom class
+% Remember to remove draftmode from the final version!
+\documentclass[draftmode]{tex/hsrthesis}
+
+% ---------------------------------------------------------------------------
+% Packages
+
+% Custom macros
+\usepackage{tex/docmacros}
+
+% Save title and date information. This is necessary for the titlepage.
+\usepackage{titling}
+
+% Language configuration
+\usepackage{polyglossia}
+
+\setmainlanguage{english}
+\setotherlanguage{german}
+
+% Write sane quantities using SI units
+\usepackage{siunitx}
+
+% To include pictures
+\usepackage{graphicx}
+
+% To add PDF at the end
+\usepackage{pdfpages}
+
+% Bibliography IEEE style
+\usepackage[backend=biber, style=ieee]{biblatex}
+
+% Allow breaking long URLs in the bibliography
+\setcounter{biburllcpenalty}{7000}
+\setcounter{biburlucpenalty}{8000}
+
+% Add a bibliography resource
+\addbibresource{Main.bib}
+
+% To print the XeLaTeX logo, used in parts/howto.tex
+\usepackage{metalogo}
+
+% ---------------------------------------------------------------------------
+% Metadata
+
+\title{
+  The Seldon Plan
+  \normalfont\itshape ---
+  A socioeconomic and anthropological analysis of long-term consequences
+  of the current astropolitical policies across the Galactic Empire
+}
+\author{
+  Dr. Gaal Dornick \and
+  Dr. Yugo Amaryl \and
+  Prof. Dr. Hari Seldon
+}
+\date{Spring 12,068 (1 F.E.)}
+
+% ---------------------------------------------------------------------------
+% Document
+
+\begin{document}
+
+  \include{tex/titlepage}
+  \cleardoublepage
+
+  \include{parts/abstract}
+  \cleardoublepage
+
+  % Use roman numberals for pages
+  \hypersetup{pageanchor=false}
+  \pagenumbering{roman}
+  \setcounter{page}{1}
+  \pagestyle{scrheadings}
+
+  \tableofcontents
+  \cleardoublepage
+
+  % Use arabic numbers for pages and add headers and footers
+  \hypersetup{pageanchor=true}
+  \pagenumbering{arabic}
+  \setcounter{page}{1}
+  \pagestyle{scrheadings}
+
+  % Add chapters
+  % \include{parts/introduction}
+  \include{parts/howto}
+
+  \printbibliography
+  \appendix
+
+  % Remember to add here
+  % - List of attached documents with:
+  %   \includepdf[openright, pages=-]{appendix/...}
+
+
+\end{document}

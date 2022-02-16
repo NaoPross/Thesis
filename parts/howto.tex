@@ -1,0 +1,85 @@
+% vim: set ts=2 sw=2 et tw=78:
+
+\chapter{How to use this template}
+
+
+\section{Requirements and typesetting}
+
+This document is made to be compiled using \XeLaTeX{} or \LuaLaTeX{} and
+\LaTeXe. Do not compile it using \texttt{pdflatex} or very old \LaTeX
+versions, it will not work! The bibliography is generated with
+\texttt{biblatex} using the \texttt{biber} backend. If you work with the
+command line you need to execute the following commands:
+\begin{verbatim}
+  $ xelatex Main.tex
+  $ biber Main.tex
+  $ xelatex Main.tex
+\end{verbatim}
+Though this will generate a lot of auxiliary files everywhere so I recommend
+using \texttt{cluttex} instead:
+\begin{verbatim}
+  $ cluttex -e xelatex --biber Main.tex
+\end{verbatim}
+Which will run \XeLaTeX{} (or \LuaLaTeX{}) the right number of times and
+produce just a single PDF, while storing the auxiliary files somewhere else in
+a temporary directory.
+
+\section{Directory structure}
+
+The structure of this template in the filesystem is as follows:
+\begin{verbatim}
+  $ tree --charset ascii Thesis
+  Thesis
+  |-- Main.bib
+  |-- Main.pdf
+  |-- Main.tex
+  |-- appendix
+  |-- figures
+  |   `-- galactic-empire.png
+  |-- parts
+  |   |-- abstract.tex
+  |   `-- howto.tex
+  `-- tex
+      |-- docmacros.sty
+      |-- hsrthesis.cls
+      `-- titlepage.tex
+\end{verbatim}
+There are two files called \texttt{Main} that may be renamed to something more
+pertinent to your thesis, though note that the new name cannot contain spaces.
+The \texttt{tex} directory only contains the ``code'', that means styling,
+macros and other special sources such as the title page.  The content of your
+thesis should be stored under the \texttt{parts} directory, \texttt{Main.tex}
+should not contain any text except for the title, date and the authors.  You
+are free to split your text into however many files you like, though I
+recommend one file per chapter.  The \texttt{figures} folder and
+\texttt{appendix} are rather self explanatory, they contain the figures and
+the content of the appendix respectively.
+
+\section{The document macros file}
+
+In the style file \texttt{tex/docmacros.sty} there are a few help macros might
+be useful to electrical engineers. Feel free to look and tweak it to your
+liking. For now I have included:
+\begin{itemize}
+  \item Probability operators
+    \lstinline!\E{X} \Pr{X} \Var{X}! (\(\E{X} \Pr{X} \Var{X}\)).
+
+  \item Special functions
+    \lstinline!\sinc \argmax \argmin! (\(\sinc \argmax \argmin\)).
+
+  \item Redefined the imaginary and real operator \lstinline!\Re{z} \Im{z}!
+    (\(\Re{z} \Im{z}\)) to look ``normal'', i.e. not with Fraktur font.
+
+  \item Linear operators \lstinline!\laplace \fourier \hilbert!
+    (\(\laplace \fourier \hilbert\)).
+
+  \item Redefined vector notation \lstinline!\vec{u}! (\(\vec{u}\)) to use a
+    bold font, and a new unit vector macro \lstinline!\uvec{u}!
+    (\(\uvec{u}\)).
+
+  \item Bold notation for the dot product \lstinline!\dotp! (\(\dotp\)) and
+    cross product \lstinline!\crossp! (\(\crossp\)), to distinguish them from
+    \lstinline!\cdot! (\(\cdot\)) and \lstinline!\times! (\(\times\)).
+
+  \item Bold upright matrix notation \lstinline!\mx{A}! (\(\mx{A}\)).
+\end{itemize}

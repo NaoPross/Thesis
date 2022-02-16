@@ -1,0 +1,56 @@
+% vim:ts=2 sw=2 et tw=78:
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{tex/docmacros}[2021/09/27 v0.1 Document Macros]
+
+\RequirePackage{mathtools}
+\RequirePackage{amsmath}
+\RequirePackage{amssymb}
+\RequirePackage{bm}
+
+% ---------------------------------------------------------------------------
+% Mathematics
+
+% Expectation
+\DeclareMathOperator{\expectation}{E}
+\newcommand{\E}[1]{\expectation \left\{#1\right\}}
+
+% Variance
+\DeclareMathOperator{\variance}{Var}
+\newcommand{\Var}[1]{\variance \left\{#1\right\}}
+
+% Probability
+\DeclareMathOperator{\probability}{Pr}
+\renewcommand{\Pr}[1]{\probability \left\{#1\right\}}
+
+% Special functions
+\DeclareMathOperator{\sinc}{sinc}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+% Redefine real and imaginary parts of a complex numbers to look normal
+\renewcommand{\Re}[1]{\mathrm{Re} \left\{#1\right\}}
+\renewcommand{\Im}[1]{\mathrm{Im} \left\{#1\right\}}
+
+% Linear operators
+\DeclareMathOperator{\laplace}{\mathcal{L}}
+\DeclareMathOperator{\fourier}{\mathcal{F}}
+\DeclareMathOperator{\hilbert}{\mathcal{H}}
+
+% Vector and unit vector
+\renewcommand{\vec}[1]{\mathbf{\bm{#1}}}
+\newcommand{\uvec}[1]{\vec{\hat{#1}}}
+
+% Dot and cross product
+\newcommand{\dotp}{\boldsymbol\cdot}
+\newcommand{\crossp}{\boldsymbol\times}
+
+% Matrix
+\newcommand{\mx}[1]{\bm{\mathrm{#1}}}
+
+% ---------------------------------------------------------------------------
+% Typesetting
+
+% Custom IEEE style references for figures and tables
+\newcommand{\figref}[1]{Fig.~\ref{#1}}
+\newcommand{\tabref}[1]{Tab.~\ref{#1}}

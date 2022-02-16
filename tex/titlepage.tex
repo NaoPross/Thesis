@@ -1,0 +1,43 @@
+% vim: set ts=2 sw=2 et tw=78:
+
+\begin{titlepage}
+  % Bigger symmetric margins
+  \newgeometry{
+    outer = 3cm, inner = 3cm,
+  }
+  \centering
+
+  % Print the title
+  {\huge\bfseries\sffamily \thetitle \par}
+  \vspace{1cm}
+
+  % Print the authors
+  {\large\slshape \theauthor \par}
+  \vspace{1cm}
+
+  % Information about the University
+  {\scshape Bachelor Thesis \par}
+  {Streeling University, Tranton, Galactic Empire\par}
+  {\thedate\par}
+
+  \vfill
+  % Add a big figure here in the middle
+  %
+  % For example an image
+  \includegraphics[height = 9cm]{figures/galactic-empire}
+  \nocite{eliasdrid-galactic} % Image source
+  %
+  % Or a tikz picture
+  % \resizebox{.9\linewidth}{!}{
+  %   \input{figures/tikz/}
+  % }
+  \vfill
+
+  % Some more info
+  \begin{tabular}{rl}
+    \bfseries\sffamily Field of Study & Psychohistory \\
+    \bfseries\sffamily Topic          & Statistical analysis of astropolitical policies \\
+    \bfseries\sffamily Examiner       & Prof. Dr. Hari Seldon \\
+  \end{tabular}
+  \restoregeometry
+\end{titlepage}
