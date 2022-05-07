@@ -64,6 +64,9 @@
 \RequirePackage{scrlayer-scrpage}
 
 % Display current chapter or section in the header (only one at the time)
+\renewcommand{\sectionmark}[1]{\markright{\thesection~#1}}
+\renewcommand{\chaptermark}[1]{\markboth{\if@mainmatter\fi\thechapter~#1}{}}
+
 \lehead{\leftmark}
 \rohead{\rightmark}
 
